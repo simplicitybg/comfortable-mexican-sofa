@@ -1,7 +1,7 @@
 class Comfy::Cms::Revision < ActiveRecord::Base
   self.table_name = 'comfy_cms_revisions'
   
-  serialize :data
+  serialize :data, JSON
   
   # -- Relationships --------------------------------------------------------
   belongs_to :record, :polymorphic => true
