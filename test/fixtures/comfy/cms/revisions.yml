@@ -3,7 +3,7 @@ layout:
   data: <%= {
     'content' => 'revision {{cms:page:default_page_text}}',
     'css'     => 'revision css',
-    'js'      => 'revision js' }.to_yaml.inspect %>
+    'js'      => 'revision js' }.to_json.inspect %>
     
 page:
   record: default (Comfy::Cms::Page)
@@ -13,9 +13,9 @@ page:
         'content'     => 'revision page content' },
       { 'identifier'  => 'default_field_text',
         'content'     => 'revision field content'}
-    ]}.to_yaml.inspect %>
+    ]}.to_json.inspect %>
       
 snippet:
   record: default (Comfy::Cms::Snippet)
   data: <%= {
-    'content' => 'revision content' }.to_yaml.inspect %>
+    'content' => 'revision content' }.to_json.inspect %>
