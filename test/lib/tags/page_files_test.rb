@@ -57,8 +57,8 @@ class PageFilesTagTest < ActiveSupport::TestCase
       :blocks_attributes => [
         { :identifier => 'files',
           :content    => [
-            fixture_file_upload('files/image.jpg', 'image/jpeg'),
-            fixture_file_upload('files/image.gif', 'image/gif')
+            fixture_file_upload('image.jpg', 'image/jpeg'),
+            fixture_file_upload('image.gif', 'image/gif')
           ]
         }
       ]
@@ -99,7 +99,7 @@ class PageFilesTagTest < ActiveSupport::TestCase
     layout = comfy_cms_layouts(:default)
     layout.update(:content => '{{ cms:page_files:file:image[10x10#] }}')
     page = comfy_cms_pages(:default)
-    upload = fixture_file_upload('files/image.jpg', 'image/jpeg')
+    upload = fixture_file_upload('image.jpg', 'image/jpeg')
 
     assert_difference 'Comfy::Cms::File.count' do
       page.update!(

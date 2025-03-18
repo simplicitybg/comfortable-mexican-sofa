@@ -92,7 +92,7 @@ class Comfy::Admin::Cms::FilesControllerTest < ActionController::TestCase
       post :create, params: { :site_id => @site, :file => {
         :label        => 'Test File',
         :description  => 'Test Description',
-        :file         => fixture_file_upload('files/image.jpg', 'image/jpeg'),
+        :file         => fixture_file_upload('image.jpg', 'image/jpeg'),
         :category_ids => {comfy_cms_categories(:default).id => '1'}
       }}
       assert_response :redirect
@@ -120,7 +120,7 @@ class Comfy::Admin::Cms::FilesControllerTest < ActionController::TestCase
         :source   => 'plupload',
         :site_id  => @site,
         :file     => {
-          :file => fixture_file_upload('files/image.jpg', 'image/jpeg')
+          :file => fixture_file_upload('image.jpg', 'image/jpeg')
         }}
       assert_response :success
       assert_no_select "body"
@@ -140,7 +140,7 @@ class Comfy::Admin::Cms::FilesControllerTest < ActionController::TestCase
       post :create, params: {
         :source   => 'redactor',
         :site_id  => @site,
-        :file     => fixture_file_upload('files/image.jpg', 'image/jpeg')}
+        :file     => fixture_file_upload('image.jpg', 'image/jpeg')}
       assert_response :success
 
       file = Comfy::Cms::File.last
@@ -157,20 +157,20 @@ class Comfy::Admin::Cms::FilesControllerTest < ActionController::TestCase
       assert_response :unprocessable_entity
     end
   end
-  
+
   def test_create_as_plupload_with_selected_category
     category = comfy_cms_categories(:default)
-    
+
     assert_difference 'Comfy::Cms::File.count' do
       post :create, params: {
         :source   => 'plupload',
         :site_id  => @site,
         :file     => {
-          :file => fixture_file_upload('files/image.jpg', 'image/jpeg')
+          :file => fixture_file_upload('image.jpg', 'image/jpeg')
         },
         :category => [category.label]}
       assert_response :success
-      
+
       file = Comfy::Cms::File.last
       assert_equal [category], file.categories
     end
@@ -180,7 +180,7 @@ class Comfy::Admin::Cms::FilesControllerTest < ActionController::TestCase
     put :update, params: { :site_id => @site, :id => @file, :file => {
       :label        => 'New File',
       :description  => 'New Description',
-      :file         => fixture_file_upload('files/image.jpg', 'image/jpeg')
+      :file         => fixture_file_upload('image.jpg', 'image/jpeg')
     }}
     assert_response :redirect
     assert_redirected_to :action => :edit, :site_id => @site, :id => @file
@@ -220,7 +220,7 @@ class Comfy::Admin::Cms::FilesControllerTest < ActionController::TestCase
   def test_reorder
     file_one = @file
     file_two = @site.files.create(
-      :file => fixture_file_upload('files/image.jpg', 'image/jpeg')
+      :file => fixture_file_upload('image.jpg', 'image/jpeg')
     )
     assert_equal 0, file_one.position
     assert_equal 1, file_two.position

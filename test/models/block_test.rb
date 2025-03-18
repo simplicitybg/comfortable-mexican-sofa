@@ -30,7 +30,7 @@ class CmsBlockTest < ActiveSupport::TestCase
   def test_content_assignment_with_files
     block = Comfy::Cms::Block.new
 
-    block.content = fixture_file_upload('files/image.jpg', 'image/jpeg')
+    block.content = fixture_file_upload('image.jpg', 'image/jpeg')
     assert_nil block.content
     assert_equal 1, block.temp_files.size
   end
@@ -116,8 +116,8 @@ class CmsBlockTest < ActiveSupport::TestCase
         :blocks_attributes => [
           { :identifier => 'file',
             :content    => [
-              fixture_file_upload('files/image.jpg', 'image/jpeg'),
-              fixture_file_upload('files/document.pdf', 'application/pdf')
+              fixture_file_upload('image.jpg', 'image/jpeg'),
+              fixture_file_upload('document.pdf', 'application/pdf')
             ]
           }
         ]
@@ -137,7 +137,7 @@ class CmsBlockTest < ActiveSupport::TestCase
       page.update!(
         :blocks_attributes => [
           { :identifier => 'file',
-            :content    => fixture_file_upload('files/document.pdf', "application/pdf") }
+            :content    => fixture_file_upload('document.pdf', "application/pdf") }
         ]
       )
       page.reload
@@ -163,8 +163,8 @@ class CmsBlockTest < ActiveSupport::TestCase
           :blocks_attributes  => [
             { :identifier => 'files',
               :content    => [
-                fixture_file_upload('files/image.jpg', 'image/jpeg'),
-                fixture_file_upload('files/image.gif', 'image/gif')
+                fixture_file_upload('image.jpg', 'image/jpeg'),
+                fixture_file_upload('image.gif', 'image/gif')
               ]
             }
           ]
@@ -185,8 +185,8 @@ class CmsBlockTest < ActiveSupport::TestCase
           :blocks_attributes => [
             { :identifier => 'files',
               :content    => [
-                fixture_file_upload('files/document.pdf', 'application/pdf'),
-                fixture_file_upload('files/image.gif', 'image/gif')
+                fixture_file_upload('document.pdf', 'application/pdf'),
+                fixture_file_upload('image.gif', 'image/gif')
               ]
             }
           ]
@@ -218,7 +218,7 @@ class CmsBlockTest < ActiveSupport::TestCase
             },
             '1' => {
               :identifier => 'file',
-              :content    => fixture_file_upload('files/document.pdf', 'application/pdf')
+              :content    => fixture_file_upload('document.pdf', 'application/pdf')
             },
             '2' => {
               :identifier => 'footer',

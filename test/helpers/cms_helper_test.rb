@@ -60,8 +60,8 @@ class ViewMethodsTest < ActionView::TestCase
         {
           :identifier => 'files',
           :content    => [
-            fixture_file_upload('files/image.jpg', "image/jpeg"),
-            fixture_file_upload('files/image.gif', "image/gif")
+            fixture_file_upload('image.jpg', "image/jpeg"),
+            fixture_file_upload('image.gif', "image/gif")
           ]
         }
       ]
