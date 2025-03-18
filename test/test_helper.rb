@@ -134,8 +134,7 @@ class ActionDispatch::IntegrationTest
   def http_auth(method, path, options = {}, username = 'username', password = 'password')
     headers = options[:headers] || {}
     headers['HTTP_AUTHORIZATION'] = "Basic #{Base64.encode64(username + ':' + password)}"
-    options[:headers] = headers
-    send(method, path, options)
+    process(method, path, headers: headers)
   end
 
   # Overriding helper method as it doesn't really work for integration tests by default
