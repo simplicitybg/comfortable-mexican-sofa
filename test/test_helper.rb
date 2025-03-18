@@ -67,9 +67,10 @@ class ActiveSupport::TestCase
   # Example usage:
   #   assert_has_errors_on @record, :field_1, :field_2
   def assert_has_errors_on(record, *fields)
-    unmatched = record.errors.keys - fields.flatten
+    attributes_with_errors = record.errors.map { |e| e.attribute }
+    unmatched = attributes_with_errors - fields.flatten
     assert unmatched.blank?, "#{record.class} has errors on '#{unmatched.join(', ')}'"
-    unmatched = fields.flatten - record.errors.keys
+    unmatched = fields.flatten - attributes_with_errors
     assert unmatched.blank?, "#{record.class} doesn't have errors on '#{unmatched.join(', ')}'"
   end
 
@@ -133,8 +134,7 @@ class ActionDispatch::IntegrationTest
   def http_auth(method, path, options = {}, username = 'username', password = 'password')
     headers = options[:headers] || {}
     headers['HTTP_AUTHORIZATION'] = "Basic #{Base64.encode64(username + ':' + password)}"
-    options[:headers] = headers
-    send(method, path, options)
+    process(method, path, headers: headers)
   end
 
   # Overriding helper method as it doesn't really work for integration tests by default
