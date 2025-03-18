@@ -45,5 +45,7 @@ defined?(ComfortableMexicanSofa::Application) && ComfortableMexicanSofa::Applica
     config.active_record.raise_in_transactional_callbacks = true
   end
 
-  config.action_view.raise_on_missing_translations = true
+  if Rails.version < '7'
+    config.action_view.raise_on_missing_translations = true
+  end
 end

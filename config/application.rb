@@ -7,10 +7,10 @@ Bundler.require(*Rails.groups(assets: %w(development test)))
 
 module ComfortableMexicanSofa
   class Application < Rails::Application
-    config.load_defaults 5.2
-  
+    config.load_defaults 7.0
+
     require_relative '../lib/comfortable_mexican_sofa'
-    
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -22,10 +22,10 @@ module ComfortableMexicanSofa
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
-    
+
     # Making sure we don't load our dev routes as part of the engine
     config.paths['config/routes.rb'] << 'config/cms_routes.rb'
-    
+
     config.i18n.enforce_available_locales = true
   end
 end
