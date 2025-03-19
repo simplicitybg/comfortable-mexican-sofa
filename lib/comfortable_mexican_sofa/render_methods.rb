@@ -92,7 +92,7 @@ module ComfortableMexicanSofa::RenderMethods
       cms_page = @cms_site.pages.build(:layout => @cms_layout)
       cms_blocks = options.delete(:cms_blocks) || { :content => render_to_string({ :layout => false }.merge(options)) }
       cms_blocks.each do |identifier, value|
-        content = value.is_a?(Hash) ? render_to_string(value.merge(:layout => false)) : value.to_s
+        content = value.is_a?(Hash) ? render_to_string(value.merge(:layout => false)).to_str : value.to_str
         cms_page.blocks.build(:identifier => identifier.to_s, :content => content)
       end
       options[:layout] ||= cms_app_layout.blank?? nil : cms_app_layout
