@@ -7,7 +7,7 @@ Bundler.require(*Rails.groups(assets: %w(development test)))
 
 module ComfortableMexicanSofa
   class Application < Rails::Application
-    config.load_defaults 7.0
+    config.load_defaults 7.1
 
     require_relative '../lib/comfortable_mexican_sofa'
 
