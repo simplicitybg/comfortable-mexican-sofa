@@ -124,7 +124,7 @@ class Comfy::Admin::Cms::FilesControllerTest < ActionController::TestCase
         }}
       assert_response :success
       assert_no_select "body"
-      assert_select "tr[id=comfy_cms_file_#{Comfy::Cms::File.last.id}]"
+      assert_match(/^\<tr id='comfy_cms_file_#{Comfy::Cms::File.last.id}'/, response.body)
     end
   end
 
