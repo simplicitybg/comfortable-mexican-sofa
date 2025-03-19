@@ -3,7 +3,7 @@ class Comfy::Cms::Block < ActiveRecord::Base
 
   FILE_CLASSES = %w(ActionDispatch::Http::UploadedFile Rack::Test::UploadedFile File).freeze
 
-  serialize :content
+  serialize :content, coder: YAML
 
   attr_accessor :temp_files
 
