@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>= 2.7.0'
 
-  s.add_dependency 'rails',             '>= 6.0.5.1', '< 7.1'
+  s.add_dependency 'rails',             '>= 7.1.0', '< 7.2'
   s.add_dependency 'rails-i18n',        '>= 5.0.0'
   s.add_dependency 'bootstrap_form',    '>= 2.2.0', '< 3'
   s.add_dependency 'active_link_to',    '>= 1.0.0'
@@ -27,10 +27,11 @@ Gem::Specification.new do |s|
   s.add_dependency 'kramdown',          '>= 1.0.0'
   s.add_dependency 'jquery-rails',      '>= 3.0.0'
   s.add_dependency 'jquery-ui-rails',   '>= 5.0.0'
-  s.add_dependency 'haml-rails',        '>= 1.0.0'
-  s.add_dependency 'haml',              '>= 4.0.6', '< 6'
+  s.add_dependency 'haml-rails',        '>= 2.1.0'
+  s.add_dependency 'haml',              '>= 5.1.0', '< 7'
   s.add_dependency 'sass-rails',        '>= 5.1.0'
   s.add_dependency 'coffee-rails',      '>= 5.0.0'
   s.add_dependency 'bootstrap-sass',    '>= 3.2.0'
   s.add_dependency 'plupload-rails',    '>= 1.2.1'
+  s.add_dependency 'psych',             '>= 3.0.0', '< 5'
 end
