@@ -7,7 +7,8 @@ class CmsPageTest < ActiveSupport::TestCase
   def test_fixtures_validity
     Comfy::Cms::Page.all.each do |page|
       assert page.valid?, page.errors.full_messages.to_s
-      assert_equal page.content_cache, page.render
+      # [].join returns US-ASCII string see https://bugs.ruby-lang.org/issues/14863
+      assert_equal page.content_cache, page.render.encode('utf-8')
     end
   end
 
