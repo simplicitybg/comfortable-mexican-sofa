@@ -12,7 +12,7 @@ class ActionDispatch::Routing::Mapper
               get  :form_blocks,    :on => :member
               get  :toggle_branch,  :on => :member
               put :reorder,         :on => :collection
-              resources :revisions, :only => [:index, :show, :revert] do
+              resources :revisions, :only => [:index, :show] do
                 patch :revert, :on => :member
               end
             end
@@ -21,13 +21,13 @@ class ActionDispatch::Routing::Mapper
             end
             resources :layouts do
               put :reorder, :on => :collection
-              resources :revisions, :only => [:index, :show, :revert] do
+              resources :revisions, :only => [:index, :show] do
                 patch :revert, :on => :member
               end
             end
             resources :snippets do
               put :reorder, :on => :collection
-              resources :revisions, :only => [:index, :show, :revert] do
+              resources :revisions, :only => [:index, :show] do
                 patch :revert, :on => :member
               end
             end

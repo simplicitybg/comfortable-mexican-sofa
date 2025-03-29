@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
   s.authors       = ["Oleg Khabarov"]
   s.email         = ["oleg@khabarov.ca"]
   s.homepage      = "http://github.com/comfy/comfortable-mexican-sofa"
-  s.summary       = "Rails 6/7 CMS Engine"
-  s.description   = "ComfortableMexicanSofa is a powerful Rails 6/7 CMS Engine"
+  s.summary       = "Rails 7.1/7.2/8 CMS Engine"
+  s.description   = "ComfortableMexicanSofa is a powerful Rails 7.1/7.2/8 CMS Engine"
   s.license       = 'MIT'
 
   s.files         = `git ls-files`.split("\n")
@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>= 2.7.0'
 
-  s.add_dependency 'rails',             '>= 7.1.0', '< 8'
+  s.add_dependency 'rails',             '>= 7.1.0', '< 8.1'
   s.add_dependency 'rails-i18n',        '>= 5.0.0'
   s.add_dependency 'bootstrap_form',    '>= 2.2.0', '< 3'
   s.add_dependency 'active_link_to',    '>= 1.0.0'
